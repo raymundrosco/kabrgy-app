@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1070883547153",
+    "project_id": "kabrgy-mobile",
+    "storage_bucket": "kabrgy-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070883547153:android:c38623bba27542db7ca9b0",
+        "android_client_info": {
+          "package_name": "com.example.kabrgy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyWa7_N5yTOhuqascssLE1o144Y-hRDi8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
