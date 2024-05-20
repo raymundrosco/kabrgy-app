@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kabrgy/screens/home_screen.dart';
@@ -9,12 +10,14 @@ class Services {
 
   Stream<User?> get onAuthStateChanged => _firebaseAuth.authStateChanges();
 
+  final TODO = "Todo"; 
+  final DONE = "Done";
+
   Future<void> signOUt({
     required BuildContext context
   }) async {
     await FirebaseAuth.instance.signOut();
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const Welcome()));
-
   }
 
   Future<void> login({
@@ -132,4 +135,19 @@ class Services {
 
     }
   }
+
+  void setStatus (String docId, String status) {
+    print(status);
+    if (status == "Pending") {
+      FirebaseFirestore.instance.collection('requirements').doc(docId).update({'status': TODO});
+    } else {
+      FirebaseFirestore.instance.collection('requirements').doc(docId).update({'status': DONE});
+    }
+  }
+
+  // void addComment (String docId, String comment) {
+  //   FirebaseFirestore.instance.collection('requirements').doc(docId).update({
+  //     comm
+  //   });
+  // }
 }

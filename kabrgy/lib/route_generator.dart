@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kabrgy/features/commentsmodal.dart';
 import 'package:kabrgy/screens/announcemenet_screen.dart';
 import 'package:kabrgy/screens/req_screen.dart';
 import 'package:kabrgy/screens/req_list_screen.dart';
@@ -7,6 +8,8 @@ import 'package:kabrgy/screens/login_screen.dart';
 import 'package:kabrgy/screens/module_list_screen.dart';
 import 'package:kabrgy/screens/module_screen.dart';
 import 'package:kabrgy/screens/register_screen.dart';
+import 'package:kabrgy/screens/social_details_screen.dart';
+import 'package:kabrgy/screens/social_screen.dart';
 import 'package:kabrgy/screens/splash_screen.dart';
 import 'package:kabrgy/screens/welcome_screen.dart';
 
@@ -28,11 +31,15 @@ class RouteGenerator {
       case '/module_list':
         return MaterialPageRoute(builder: (_) => const ModuleList());
       case '/module':
-        return MaterialPageRoute(builder: (_) => const Module());
+        return MaterialPageRoute(settings: settings, builder: (_) => const Module());
       case '/req_list':
         return MaterialPageRoute(builder: (_) => const ReqList());
       case '/req':
         return MaterialPageRoute(settings: settings, builder: (_) => const Req());
+      case '/socials':
+        return MaterialPageRoute(builder: (_) => const Socials());
+      case '/social_details':
+        return MaterialPageRoute(builder: (_) => const SocialDetails());
       default:
         return _errorRoute();
     }

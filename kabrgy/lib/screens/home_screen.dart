@@ -80,12 +80,14 @@ class _HomeState extends State<Home> {
                                               .appTheme
                                               .textTheme
                                               .headlineMedium),
+                                      SizedBox(height: 4,),
                                       Text('By ${newsData[index]['author']}',
                                         style: AppTheme()
                                             .appTheme
                                             .textTheme
                                             .bodyMedium,
                                       ),
+                                      SizedBox(height: 4,),
                                       Text(newsData[index]['content'],
                                         style: AppTheme()
                                             .appTheme

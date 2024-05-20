@@ -40,7 +40,7 @@ class CriteriacardwidgetState extends State<Criteriacardwidget> {
                     style: AppTheme().appTheme.textTheme.labelMedium,
                   ),
                 ]),
-                Text("50%", style: AppTheme().appTheme.textTheme.bodyMedium,)
+                Text("${widget.percent}%", style: AppTheme().appTheme.textTheme.bodyMedium,)
               ],
             ),
           ),
@@ -53,7 +53,7 @@ class CriteriacardwidgetState extends State<Criteriacardwidget> {
                 decoration: BoxDecoration(
                     border: Border.all(
                         color: AppTheme().appTheme.colorScheme.primary)),
-                child: Text("hshdaskjds")))
+                child: Text(widget.content)))
       ],
     );
   }

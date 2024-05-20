@@ -25,7 +25,7 @@ class SubmissionWidgetState extends State<SubmissionWidget> {
           Divider(),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 28),
-            color: AppTheme().appTheme.colorScheme.background,
+            color: AppTheme().appTheme.colorScheme.surface,
             child: Column(
               children: [
                 SizedBox(

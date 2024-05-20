@@ -38,22 +38,27 @@ class _ModuleListState extends State<ModuleList> {
             ),
             Text('Learn to extend your impact!',
                 style: AppTheme().appTheme.textTheme.headlineMedium),
-            const SizedBox(
-              height: 8,
+            const Divider(
             ),
             Expanded(
               child: StreamBuilder(
-                  stream: firestore.collection('requirements').snapshots(),
+                  stream: firestore.collection('modules').snapshots(),
                   builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                    List<QueryDocumentSnapshot> modData = snapshot.data!.docs;
                     if (snapshot.hasData) {
                       if (snapshot.data!.docs.isNotEmpty) {
                         return ListView.builder(
+                          itemCount: modData.length,
                           itemBuilder: (context, index) {
                             return Column(
                               children: [
                                 GestureDetector(
                                   onTap: () {
-                                    Navigator.of(context).pushNamed('/module');
+                                    Navigator.pushNamed(
+                                      context,
+                                      '/module',
+                                      arguments: index
+                                    );
                                   },
                                   child: Container(
                                     width: double.infinity,
@@ -70,17 +75,17 @@ class _ModuleListState extends State<ModuleList> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text('Module Title',
+                                        Text(modData[index]['title'],
                                             style: AppTheme()
                                                 .appTheme
                                                 .textTheme
-                                                .titleLarge),
-                                        Text(
-                                          'Announcement details...',
+                                                .headlineMedium),
+                                        Text(modData[index]['content'],
                                           style: AppTheme()
                                               .appTheme
                                               .textTheme
                                               .bodyMedium,
+                                          overflow: TextOverflow.ellipsis,
                                         ),
                                       ],
                                     ),
@@ -95,7 +100,7 @@ class _ModuleListState extends State<ModuleList> {
                         );
                       }
                     }
-                      return CircularProgressIndicator();
+                    return CircularProgressIndicator();
                   }),
             ),
           ],

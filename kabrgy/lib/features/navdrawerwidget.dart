@@ -131,7 +131,7 @@ class _NavDrawerWidgetState extends State<NavDrawerWidget> {
     } else if (key == 2) {
       Navigator.of(context).pushNamed('/req_list');
     } else if (key == 3) {
-      Navigator.of(context).pushNamed('/home');
+      Navigator.of(context).pushNamed('/socials');
     }
   }
 
